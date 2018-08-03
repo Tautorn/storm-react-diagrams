@@ -52,6 +52,19 @@ export class DefaultLinkWidget extends BaseWidget<DefaultLinkProps, DefaultLinkS
 		}
 	}
 
+	shouldComponentUpdate(nextProps: DefaultLinkProps, nextState: DefaultLinkState) {
+		// Most of the time, we don't need to redraw links.  We make allowances for three special cases:
+		// Link is being selected or unselected.
+		// We are creating a new link and dragging it around.
+		// We are moving an item, and its nearby links need to change
+		//   - This case is covered by canEntityRepaintStrict. MoveItemActions allows the nearby links to repaint.
+		return (
+			this.state.selected != nextState.selected ||
+			nextProps.link.extras.isNewLink == true ||
+			nextProps.diagramEngine.canEntityRepaintStrict(nextProps.link)
+		);
+	}
+
 	calculateAllLabelPosition() {
 		_.forEach(this.props.link.labels, (label, index) => {
 			this.calculateLabelPosition(label, index + 1);

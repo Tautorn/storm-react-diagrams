@@ -142,6 +142,14 @@ export class DiagramEngine extends BaseEntity<DiagramEngineListener> {
 		return this.paintableWidgets[baseModel.getID()] !== undefined;
 	}
 
+	canEntityRepaintStrict(baseModel: BaseModel<BaseEntity, BaseModelListener>) {
+		if (this.paintableWidgets === null) {
+			return false;
+		}
+
+		return this.paintableWidgets[baseModel.getID()] !== undefined;
+	}
+
 	setCanvas(canvas: Element | null) {
 		this.canvas = canvas;
 	}

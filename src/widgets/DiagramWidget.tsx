@@ -342,6 +342,7 @@ export class DiagramWidget extends BaseWidget<DiagramProps, DiagramState> {
 							link.removePointsBefore(model.model);
 						}
 					} else {
+						link.extras.isNewLink = false;
 						link.setTargetPort(element.model);
 					}
 					delete this.props.diagramEngine.linksThatHaveInitiallyRendered[link.getID()];
@@ -507,6 +508,7 @@ export class DiagramWidget extends BaseWidget<DiagramProps, DiagramState> {
 									link.setSourcePort(sourcePort);
 								}
 								link.setTargetPort(null);
+								link.extras.isNewLink = true;
 
 								link.getFirstPoint().updateLocation(relative);
 								link.getLastPoint().updateLocation(relative);
