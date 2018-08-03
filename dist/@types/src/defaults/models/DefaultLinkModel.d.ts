@@ -37,7 +37,9 @@ export declare class DefaultLinkModel extends LinkModel<DefaultLinkModelListener
             x: number;
             y: number;
         })[];
-        extras: {};
+        extras: {
+            [key: string]: any;
+        };
         labels: ({
             id: string;
         } & {

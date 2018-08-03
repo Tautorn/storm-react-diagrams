@@ -18,7 +18,9 @@ export declare class LinkModel<T extends LinkModelListener = LinkModelListener> 
     targetPort: PortModel | null;
     labels: LabelModel[];
     points: PointModel[];
-    extras: {};
+    extras: {
+        [key: string]: any;
+    };
     constructor(linkType?: string, id?: string);
     deSerialize(ob: any, engine: DiagramEngine): void;
     serialize(): {
@@ -40,7 +42,9 @@ export declare class LinkModel<T extends LinkModelListener = LinkModelListener> 
             x: number;
             y: number;
         })[];
-        extras: {};
+        extras: {
+            [key: string]: any;
+        };
         labels: ({
             id: string;
         } & {

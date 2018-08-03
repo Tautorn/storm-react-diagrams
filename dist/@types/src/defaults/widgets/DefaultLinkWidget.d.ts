@@ -23,6 +23,7 @@ export declare class DefaultLinkWidget extends BaseWidget<DefaultLinkProps, Defa
     refPaths: SVGPathElement[];
     pathFinding: PathFinding;
     constructor(props: DefaultLinkProps);
+    shouldComponentUpdate(nextProps: DefaultLinkProps, nextState: DefaultLinkState): boolean;
     calculateAllLabelPosition(): void;
     componentDidUpdate(): void;
     componentDidMount(): void;

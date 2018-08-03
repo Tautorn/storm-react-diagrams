@@ -73,7 +73,9 @@ export declare class DiagramModel extends BaseEntity<DiagramListener> {
                 x: number;
                 y: number;
             })[];
-            extras: {};
+            extras: {
+                [key: string]: any;
+            };
             labels: ({
                 id: string;
             } & {
